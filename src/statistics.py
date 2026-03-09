@@ -1,6 +1,5 @@
 import numpy as np
 
-
 class StatisticsEngine:
 
     def __init__(self, data: np.ndarray):
@@ -26,3 +25,15 @@ class StatisticsEngine:
 
     def total_sum(self):
         return np.sum(self.data, axis=0)
+
+    def summary(self):
+        """Return full statistics summary"""
+        return {
+            "Mean": self.mean(),
+            "Median": self.median(),
+            "Std Dev": self.std(),
+            "Variance": self.variance(),
+            "Min": self.minimum(),
+            "Max": self.maximum(),
+            "Sum": self.total_sum()
+        }
